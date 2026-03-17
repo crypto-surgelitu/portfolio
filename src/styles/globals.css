@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #1a1a0e;
+    --foreground: #F5F5F0;
+    --card: #2a2a1c;
+    --card-foreground: #F5F5F0;
+    --popover: #2a2a1c;
+    --popover-foreground: #F5F5F0;
+    --primary: #D4A017;
+    --primary-foreground: #1a1a0e;
+    --secondary: #3a3a2a;
+    --secondary-foreground: #F5F5F0;
+    --muted: #252518;
+    --muted-foreground: #A0A090;
+    --accent: #b88f14;
+    --accent-foreground: #1a1a0e;
+    --destructive: #ef4444;
+    --destructive-foreground: #F5F5F0;
+    --border: #3a3a2a;
+    --input: #3a3a2a;
+    --ring: #D4A017;
+    --radius: 0.25rem;
+  }
+
+  [data-theme="light"] {
+    --background: #F5F5F0;
+    --foreground: #1a1a0e;
+    --card: #FFFFFF;
+    --card-foreground: #1a1a0e;
+    --popover: #FFFFFF;
+    --popover-foreground: #1a1a0e;
+    --primary: #D4A017;
+    --primary-foreground: #1a1a0e;
+    --secondary: #E0E0D8;
+    --secondary-foreground: #1a1a0e;
+    --muted: #E0E0D8;
+    --muted-foreground: #6b6b5e;
+    --accent: #E8C547;
+    --accent-foreground: #1a1a0e;
+    --destructive: #ef4444;
+    --destructive-foreground: #F5F5F0;
+    --border: #E0E0D8;
+    --input: #E0E0D8;
+    --ring: #D4A017;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+  }
+  /* Lenis scroll classes */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}
