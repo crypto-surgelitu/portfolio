@@ -18,7 +18,8 @@ export default function Contact() {
     name: '',
     email: '',
     service: 'Web Development',
-    budget: 'Under KES 50k',
+    budget: "Let's discuss",
+    timeline: 'Flexible',
     message: '',
     honey: '' // Honeypot field
   })
@@ -94,6 +95,7 @@ export default function Contact() {
         email: DOMPurify.sanitize(formData.email),
         service: DOMPurify.sanitize(formData.service),
         budget: DOMPurify.sanitize(formData.budget),
+        timeline: DOMPurify.sanitize(formData.timeline),
         message: DOMPurify.sanitize(formData.message),
         'g-recaptcha-response': recaptchaToken
       }
@@ -114,7 +116,7 @@ export default function Contact() {
       }
 
       setSubmitStatus('success')
-      setFormData({ name: '', email: '', service: 'Web Development', budget: 'Under KES 50k', message: '', honey: '' })
+      setFormData({ name: '', email: '', service: 'Web Development', budget: "Let's discuss", timeline: 'Flexible', message: '', honey: '' })
       localStorage.setItem('lastSubmitTime', Date.now().toString())
       setCooldownTime(60)
     } catch (error) {
@@ -134,8 +136,8 @@ export default function Contact() {
       />
       
       {/* Header section */}
-      <div className="container mx-auto px-6 pt-20 pb-12">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+      <div className="container mx-auto px-6 pt-20 pb-8 md:pb-12">
+        <h1 className="text-[2.2rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.8rem] font-bold mb-4 md:mb-6 tracking-tight">
           Start a <span className="text-gold italic">Project.</span>
         </h1>
         <p className="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed mb-16">
@@ -143,8 +145,8 @@ export default function Contact() {
         </p>
       </div>
 
-      <div className="container mx-auto px-6 pb-32">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
+      <div className="container mx-auto px-6 pb-16 md:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24">
           
           {/* Contact Form */}
           <div className="lg:col-span-7">
@@ -217,11 +219,10 @@ export default function Contact() {
                         onChange={handleChange}
                         className="w-full bg-background border border-border rounded p-4 text-foreground focus:outline-none focus:border-gold transition-colors appearance-none"
                       >
+                        <option value="UI Design">UI Design</option>
                         <option value="Web Development">Web Development</option>
-                        <option value="E-Commerce">E-Commerce</option>
                         <option value="API Integration">API Integration</option>
-                        <option value="Maintenance">Maintenance / Support</option>
-                        <option value="Other">Other</option>
+                        <option value="E-Commerce">E-Commerce</option>
                       </select>
                     </div>
 
@@ -234,12 +235,30 @@ export default function Contact() {
                         onChange={handleChange}
                         className="w-full bg-background border border-border rounded p-4 text-foreground focus:outline-none focus:border-gold transition-colors appearance-none"
                       >
-                        <option value="Under KES 50k">Under KES 50,000</option>
-                        <option value="KES 50k - 100k">KES 50,000 - 100,000</option>
-                        <option value="KES 100k - 250k">KES 100,000 - 250,000</option>
-                        <option value="Over KES 250k">Over KES 250,000</option>
+                        <option value="Let's discuss">Let's discuss</option>
+                        <option value="Under KES 20,000">Under KES 20,000</option>
+                        <option value="KES 20,000-50,000">KES 20,000 - 50,000</option>
+                        <option value="KES 50,000-150,000">KES 50,000 - 150,000</option>
+                        <option value="KES 150,000+">KES 150,000+</option>
                       </select>
                     </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="timeline" className="text-sm font-semibold tracking-wide uppercase text-text-secondary">Timeline</label>
+                    <select 
+                      id="timeline" 
+                      name="timeline"
+                      value={formData.timeline}
+                      onChange={handleChange}
+                      className="w-full bg-background border border-border rounded p-4 text-foreground focus:outline-none focus:border-gold transition-colors appearance-none"
+                    >
+                      <option value="Flexible">Flexible</option>
+                      <option value="ASAP">ASAP</option>
+                      <option value="1 Month">1 Month</option>
+                      <option value="2-3 Months">2-3 Months</option>
+                      <option value="3+ Months">3+ Months</option>
+                    </select>
                   </div>
 
                   <div className="space-y-2">
@@ -304,17 +323,16 @@ export default function Contact() {
               <h3 className="text-sm font-semibold tracking-widest uppercase text-gold mb-8">Direct Contact</h3>
               
               <div className="space-y-6">
-                <a href="mailto:hello@anthonymuhati.dev" className="flex items-center gap-4 p-4 rounded-lg hover:bg-surface border border-transparent hover:border-border transition-all group">
+                <a href="mailto:hello@anthonymuhati.com" className="flex items-center gap-4 p-4 rounded-lg hover:bg-surface border border-transparent hover:border-border transition-all group">
                   <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center text-text-secondary group-hover:text-gold group-hover:bg-gold/10 transition-colors">
                     <Mail size={20} />
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-text-secondary mb-1">Email</p>
-                    <p className="font-semibold text-lg group-hover:text-gold transition-colors">hello@anthonymuhati.dev</p>
+                    <p className="font-semibold text-lg group-hover:text-gold transition-colors">hello@anthonymuhati.com</p>
                   </div>
                 </a>
 
-                {/* TODO: Add real number before deploy */}
                 <a href="#" className="flex items-center gap-4 p-4 rounded-lg hover:bg-surface border border-transparent hover:border-border transition-all group">
                   <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center text-text-secondary group-hover:text-gold group-hover:bg-gold/10 transition-colors">
                     <MessageCircle size={20} />
@@ -325,7 +343,6 @@ export default function Contact() {
                   </div>
                 </a>
 
-                {/* TODO: Add real number before deploy */}
                 <a href="#" className="flex items-center gap-4 p-4 rounded-lg hover:bg-surface border border-transparent hover:border-border transition-all group">
                   <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center text-text-secondary group-hover:text-gold group-hover:bg-gold/10 transition-colors">
                     <Phone size={20} />

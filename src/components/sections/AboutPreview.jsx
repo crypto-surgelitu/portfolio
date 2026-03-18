@@ -14,16 +14,16 @@ export default function AboutPreview() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
 
   return (
-    <section ref={containerRef} className="py-24 bg-surface/30 border-y border-border">
+    <section ref={containerRef} className="py-16 md:py-24 bg-surface/30 border-y border-border">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
           
           <div className="col-span-1 md:col-span-5">
             <motion.h2 
               initial={{ opacity: 0, y: 28 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-5xl font-bold mb-8"
+              className="text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-bold mb-6 md:mb-8"
             >
               Code meets <br />
               <span className="text-gold italic">design.</span>
@@ -65,7 +65,7 @@ export default function AboutPreview() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-background border border-border p-8 md:p-12 rounded relative overflow-hidden"
+              className="bg-background border border-border p-6 md:p-12 rounded relative overflow-hidden"
             >
               {/* Background accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 blur-3xl -z-10 rounded-full" />

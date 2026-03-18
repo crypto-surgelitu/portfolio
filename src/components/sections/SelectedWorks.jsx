@@ -50,7 +50,7 @@ export default function SelectedWorks() {
   }
 
   return (
-    <section ref={containerRef} className="py-24 md:py-32">
+    <section ref={containerRef} className="py-16 md:py-32">
       <div className="container mx-auto px-6">
         
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">

@@ -8,7 +8,7 @@ export default function ContactCTA() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
 
   return (
-    <section ref={containerRef} className="py-32 relative overflow-hidden">
+    <section ref={containerRef} className="py-16 md:py-32 relative overflow-hidden">
       {/* Decorative background glow */}
       <motion.div 
         animate={{ 
@@ -33,7 +33,7 @@ export default function ContactCTA() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold mb-6 tracking-tight"
+          className="text-[2rem] md:text-[3rem] lg:text-[4.5rem] font-bold mb-4 md:mb-6 tracking-tight"
         >
           Let's build something <br />
           <span className="italic text-gold">extraordinary.</span>

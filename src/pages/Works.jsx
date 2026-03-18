@@ -68,8 +68,8 @@ export default function Works() {
       />
       
       {/* Header section */}
-      <div className="container mx-auto px-6 pt-20 pb-12">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+      <div className="container mx-auto px-6 pt-20 pb-8 md:pb-12">
+        <h1 className="text-[2.2rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.8rem] font-bold mb-4 md:mb-6 tracking-tight">
           Selected <span className="text-gold italic">Works.</span>
         </h1>
         <p className="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed mb-16">
@@ -77,7 +77,7 @@ export default function Works() {
         </p>
 
         {/* Filter Bar */}
-        <div className="flex flex-wrap items-center gap-2 md:gap-4 mb-16 border-b border-border pb-6">
+        <div className="flex overflow-x-auto items-center gap-2 md:gap-4 mb-16 border-b border-border pb-6 whitespace-nowrap">
           {categories.map(category => (
             <button
               key={category}

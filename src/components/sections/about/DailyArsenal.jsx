@@ -25,7 +25,7 @@ export default function DailyArsenal() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
 
   return (
-    <section ref={containerRef} className="py-24 border-t border-border bg-surface/20">
+    <section ref={containerRef} className="py-16 md:py-24 border-t border-border bg-surface/20">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export default function DailyArsenal() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {tools.map((tool, index) => (
             <motion.div
               key={index}

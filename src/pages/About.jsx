@@ -13,8 +13,8 @@ export default function About() {
         description="Learn about Anthony Muhati, a full-stack developer from Mombasa, Kenya specialising in React and Node.js." 
         path="/about"
       />
-      <div className="container mx-auto px-6 pt-20 pb-12">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+      <div className="container mx-auto px-6 pt-20 pb-8 md:pb-12">
+        <h1 className="text-[2.2rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.8rem] font-bold mb-4 md:mb-6 tracking-tight">
           About <span className="text-gold italic">Me.</span>
         </h1>
         <p className="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed">

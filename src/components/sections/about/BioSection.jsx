@@ -7,8 +7,8 @@ export default function BioSection() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
 
   return (
-    <section ref={containerRef} className="py-24">
-      <div className="grid md:grid-cols-12 gap-12 items-start">
+    <section ref={containerRef} className="py-16 md:py-24">
+      <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ export default function BioSection() {
             Working independently means I handle everything from initial architecture planning to final deployment. This holistic view of the development lifecycle ensures that performance, security, and user experience are baked in from day one, not added as an afterthought.
           </p>
           
-          <div className="grid grid-cols-2 gap-8 pt-8 border-t border-border mt-12 w-full max-w-md">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-border mt-12 w-full max-w-md">
             <div>
               <p className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-gold to-gold-light">
                 <Counter value="10" suffix="+" />

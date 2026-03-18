@@ -75,7 +75,7 @@ export default function SkillsGrid() {
   }
 
   return (
-    <section ref={containerRef} className="py-24 border-t border-border border-dashed relative">
+    <section ref={containerRef} className="py-16 md:py-24 border-t border-border border-dashed relative">
       <div className="absolute top-0 right-0 w-[30vw] h-[30vw] bg-gold/5 blur-3xl rounded-full -translate-y-1/2 pointer-events-none" />
       
       <motion.div
@@ -92,7 +92,7 @@ export default function SkillsGrid() {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="grid md:grid-cols-3 gap-8 lg:gap-12"
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
       >
         {skillCategories.map((category, idx) => (
           <motion.div 

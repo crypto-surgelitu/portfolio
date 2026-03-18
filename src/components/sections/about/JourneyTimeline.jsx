@@ -33,8 +33,8 @@ export default function JourneyTimeline() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
 
   return (
-    <section ref={containerRef} className="py-24 border-t border-border">
-      <div className="grid md:grid-cols-12 gap-12">
+    <section ref={containerRef} className="py-16 md:py-24 border-t border-border">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
         <div className="md:col-span-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

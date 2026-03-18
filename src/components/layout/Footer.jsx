@@ -45,7 +45,7 @@ export default function Footer() {
                 <ArrowUpRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </a>
               <a 
-                href="https://wa.me/254700000000" // Replace with actual number
+                href="#" 
                 target="_blank" 
                 rel="noreferrer"
                 className="flex items-center gap-2 px-4 py-2 border border-border rounded hover:border-gold hover:text-gold transition-colors group"

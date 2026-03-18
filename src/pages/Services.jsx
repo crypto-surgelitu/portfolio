@@ -63,8 +63,8 @@ export default function Services() {
       />
       
       {/* Header section */}
-      <div className="container mx-auto px-6 pt-20 pb-12">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+      <div className="container mx-auto px-6 pt-20 pb-8 md:pb-12">
+        <h1 className="text-[2.2rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.8rem] font-bold mb-4 md:mb-6 tracking-tight">
           Premium Digital <span className="text-gold italic">Solutions.</span>
         </h1>
         <p className="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed mb-16">
@@ -73,7 +73,7 @@ export default function Services() {
       </div>
 
       {/* Pricing Tiers Section */}
-      <div className="bg-surface/30 border-y border-border py-24 relative overflow-hidden">
+      <div className="bg-surface/30 border-y border-border py-16 md:py-24 relative overflow-hidden">
         {/* Background Decorative */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-gold/5 blur-3xl rounded-full -z-10" />
 
@@ -135,7 +135,7 @@ export default function Services() {
       </div>
 
       {/* FAQ Section */}
-      <div className="py-24 md:py-32">
+      <div className="py-16 md:py-24 md:py-32">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
@@ -187,7 +187,7 @@ export default function Services() {
       <div className="border-t border-border">
         <Link 
           to="/contact" 
-          className="block w-full py-24 md:py-32 text-center group bg-surface/10 hover:bg-gold/5 transition-colors"
+          className="block w-full py-16 md:py-24 text-center group bg-surface/10 hover:bg-gold/5 transition-colors"
           data-cursor="hover"
         >
           <div className="flex justify-center mb-6">

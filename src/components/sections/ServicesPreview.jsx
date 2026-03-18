@@ -100,7 +100,7 @@ export default function ServicesPreview() {
   }
 
   return (
-    <section ref={containerRef} className="py-24 bg-surface/30 border-y border-border overflow-hidden">
+    <section ref={containerRef} className="py-16 md:py-24 bg-surface/30 border-y border-border overflow-hidden">
       <div className="container mx-auto px-6">
         
         <div className="text-center max-w-3xl mx-auto mb-20">

@@ -47,7 +47,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 28 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight mb-6"
+              className="text-[2.2rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.8rem] font-bold leading-[1.1] tracking-tight mb-6"
             >
               Building digital <br />
               <span className="text-gold italic pr-4">experiences</span> <br />
