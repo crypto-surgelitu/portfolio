@@ -3,6 +3,7 @@ import PageMeta from '../components/seo/PageMeta'
 import BioSection from '../components/sections/about/BioSection'
 import SkillsGrid from '../components/sections/about/SkillsGrid'
 import JourneyTimeline from '../components/sections/about/JourneyTimeline'
+import ServicesPreview from '../components/sections/ServicesPreview'
 import DailyArsenal from '../components/sections/about/DailyArsenal'
 
 export default function About() {
@@ -28,6 +29,7 @@ export default function About() {
         <JourneyTimeline />
       </div>
       
+      <ServicesPreview />
       <DailyArsenal />
     </PageTransition>
   )

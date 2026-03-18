@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Github, Linkedin, MessageCircle, ArrowUpRight } from 'lucide-react'
+import { Github, Linkedin, MessageCircle, ArrowUpRight, Terminal } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -10,9 +10,14 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-0 mb-16">
           
           <div className="max-w-md">
-            <Link to="/" className="text-2xl font-bold tracking-wider inline-block mb-4" data-cursor="hover">
-              <span className="text-foreground">AM</span>
-              <span className="text-gold">.</span>
+            <Link to="/" className="flex items-center gap-2 text-2xl font-bold tracking-wider mb-6 group inline-block" data-cursor="hover">
+              <div className="w-10 h-10 rounded bg-gold/10 border border-gold/20 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all">
+                <Terminal size={22} strokeWidth={2.5} />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="text-foreground">MUHATI</span>
+                <span className="text-[10px] text-gold font-medium tracking-[0.2em] mt-0.5">EST 2014</span>
+              </div>
             </Link>
             <p className="text-text-secondary leading-relaxed">
               Full-stack web developer based in Mombasa, Kenya. Crafting complete, production-ready digital experiences tailored for performance and scale.

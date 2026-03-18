@@ -113,22 +113,56 @@ export default function Works() {
                   <div className="flex flex-col h-full rounded-xl overflow-hidden border border-border bg-surface transition-colors duration-500 hover:border-gold/50">
                     
                     {/* Image Area */}
-                    <div className="relative aspect-[4/3] w-full bg-background border-b border-border overflow-hidden">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-30 group-hover:scale-105 transition-transform duration-700 ease-out`} />
+                    <div className="relative aspect-[16/9] w-full bg-background border-b border-border overflow-hidden group">
+                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-30 group-hover:scale-105 transition-transform duration-1000 ease-out`} />
                       
-                      {/* UI Mock inside thumbnail */}
-                      <div className="absolute inset-x-6 top-6 bottom-0 bg-surface rounded-t border-t border-x border-border/50 shadow-2xl overflow-hidden translate-y-4 group-hover:translate-y-2 transition-transform duration-500">
-                        <div className="h-4 bg-background border-b border-border/50 flex flex-row items-center px-3 gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-border" />
-                          <span className="w-1.5 h-1.5 rounded-full bg-border" />
+                      {/* Browser Mockup Frame */}
+                      <div className={`absolute inset-x-8 top-8 bottom-0 bg-surface rounded-t-lg border-t border-x border-border shadow-2xl overflow-hidden translate-y-2 group-hover:translate-y-0 transition-transform duration-700 ease-out ${
+                        project.slug === 'salon-manager' ? 'border-dashed border-gold/30' : ''
+                      }`}>
+                        {/* Browser Header */}
+                        <div className="h-6 bg-background/50 backdrop-blur-md border-b border-border flex items-center justify-between px-3">
+                          <div className="flex gap-1">
+                            <div className="w-2 h-2 rounded-full bg-rose-500/30" />
+                            <div className="w-2 h-2 rounded-full bg-amber-500/30" />
+                            <div className="w-2 h-2 rounded-full bg-emerald-500/30" />
+                          </div>
+                          <div className="w-24 h-1.5 bg-border rounded-full opacity-30" />
+                          <div className="w-4 h-1.5 bg-border rounded-full opacity-30" />
+                        </div>
+
+                        {/* Content Placeholders */}
+                        <div className="p-6 space-y-6 h-full bg-gradient-to-br from-surface to-background/30">
+                          {project.slug === 'salon-manager' ? (
+                             <div className="absolute inset-0 flex items-center justify-center">
+                               <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold/40 rotate-12">Coming Soon</span>
+                             </div>
+                          ) : (
+                            <>
+                              <div className="space-y-2">
+                                <div className="w-1/4 h-2 bg-gold/10 rounded" />
+                                <div className="w-1/2 h-6 bg-foreground/5 rounded" />
+                              </div>
+                              <div className="grid grid-cols-2 gap-4">
+                                <div className="aspect-video bg-foreground/3 rounded border border-border/50" />
+                                <div className="aspect-video bg-foreground/3 rounded border border-border/50" />
+                              </div>
+                            </>
+                          )}
                         </div>
                       </div>
+
+                      {/* Reflection overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.01] pointer-events-none" />
                     </div>
 
                     {/* Content Area */}
                     <div className="p-6 md:p-8 flex flex-col flex-grow">
                       <div className="flex justify-between items-start mb-4">
-                        <h3 className="text-2xl font-bold group-hover:text-gold transition-colors">{project.title}</h3>
+                        <div className="flex flex-col gap-1">
+                          <span className="text-[10px] uppercase tracking-widest text-gold font-bold">{project.category}</span>
+                          <h3 className="text-2xl font-bold group-hover:text-gold transition-colors">{project.title}</h3>
+                        </div>
                         <ArrowUpRight 
                           size={24} 
                           className={`text-text-secondary transition-all duration-300 ${
@@ -137,11 +171,11 @@ export default function Works() {
                         />
                       </div>
                       
-                      <p className="text-text-secondary mb-6 flex-grow">{project.description}</p>
+                      <p className="text-sm text-text-secondary mb-6 flex-grow leading-relaxed">{project.description}</p>
                       
                       <div className="flex flex-wrap gap-2 mt-auto">
                         {project.tech.map(t => (
-                          <span key={t} className="text-xs font-mono px-2.5 py-1 bg-background border border-border rounded text-text-secondary">
+                          <span key={t} className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 bg-background border border-border rounded text-text-secondary group-hover:border-gold/30 transition-colors">
                             {t}
                           </span>
                         ))}

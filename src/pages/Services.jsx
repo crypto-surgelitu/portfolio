@@ -5,6 +5,45 @@ import { Link } from 'react-router-dom'
 import PageTransition from '../components/layout/PageTransition'
 import PageMeta from '../components/seo/PageMeta'
 
+const serviceRows = [
+  {
+    title: 'Web Application Development',
+    description: 'Specializing in high-performance React and Next.js applications that are scalable, secure, and optimized for speed. I build complete digital products from the ground up, ensuring seamless user experiences across all devices.',
+    features: ['Custom SPA/SSR Frameworks', 'React & Next.js Expertise', 'Scalable Backend Architecture', 'Deployment & Cloud Hosting'],
+    image: 'bg-gradient-to-br from-gold/20 to-amber-500/20',
+    icon: <Code2 className="text-gold" size={32} />
+  },
+  {
+    title: 'UI/UX Strategy & Development',
+    description: 'Transforming ideas into visually stunning and highly functional interfaces. I focus on creating design systems that are not only beautiful but also intuitive, following modern accessibility standards and conversion-driven layouts.',
+    features: ['High-Fidelity Prototyping', 'Design System Architecture', 'Responsive Layout Precision', 'Interactive Micro-animations'],
+    image: 'bg-gradient-to-br from-slate-500/20 to-indigo-600/20',
+    icon: <PenTool className="text-gold" size={32} />
+  },
+  {
+    title: 'API & Payment Integration',
+    description: 'Connecting your business to critical local and global services. Expert integration of M-Pesa Daraja API for automated checkouts, along with third-party SMS, mailers, and advanced database architectures.',
+    features: ['Lipa na M-Pesa (Daraja API)', 'Custom API Development', 'Third-Party Webhook Sync', 'Database Optimization'],
+    image: 'bg-gradient-to-br from-emerald-500/20 to-teal-600/20',
+    icon: <Database className="text-gold" size={32} />
+  },
+  {
+    title: 'E-Commerce Solutions',
+    description: 'Building end-to-end online stores that drive results. From multi-vendor marketplaces to bespoke brand shops, I implement complete checkout flows, inventory management, and admin dashboards designed for Kenyan and global markets.',
+    features: ['Inventory Management Systems', 'Multi-Vendor Architecture', 'Admin Dashboard Control', 'SEO Optimized Catalog'],
+    image: 'bg-gradient-to-br from-rose-500/20 to-pink-600/20',
+    icon: <Layout className="text-gold" size={32} />
+  }
+]
+
+const methodSteps = [
+  { step: '01', title: 'Discovery & Audit', description: 'Understanding your business goals and auditing existing codebases or design requirements.' },
+  { step: '02', title: 'Architecture & Planning', description: 'Defining the data structures and backend architecture required for scale and performance.' },
+  { step: '03', title: 'High-Fidelity Design', description: 'Crafting the visual language and interactive prototypes for final approval before dev.' },
+  { step: '04', title: 'Agile Development', description: 'Writing clean, production-ready code with continuous testing and feedback loops.' },
+  { step: '05', title: 'QA & Deployment', description: 'Rigorous testing followed by seamless deployment to production-grade cloud infrastructure.' }
+]
+
 const pricingTiers = [
   {
     name: 'Starter',
@@ -70,6 +109,73 @@ export default function Services() {
         <p className="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed mb-16">
           I provide end-to-end development services tailored to modern business needs, from conceptualizing architecture to final deployment.
         </p>
+      </div>
+      {/* Service Rows */}
+      <div className="container mx-auto px-6 py-16 md:py-32 space-y-32">
+        {serviceRows.map((service, index) => (
+          <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-16 md:gap-24`}>
+            {/* Image Placeholder Column */}
+            <div className="w-full md:w-1/2 aspect-video bg-surface border border-border rounded-2xl overflow-hidden relative group">
+               <div className={`absolute inset-0 ${service.image} opacity-30 group-hover:scale-110 transition-transform duration-1000 ease-out`} />
+               <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 rounded-full bg-background border border-border flex items-center justify-center shadow-2xl">
+                    {service.icon}
+                  </div>
+               </div>
+            </div>
+            
+            {/* Content Column */}
+            <div className="w-full md:w-1/2">
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-gold mb-4 inline-block">Service {index + 1}</span>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">{service.title}</h2>
+              <p className="text-lg text-text-secondary leading-relaxed mb-8">
+                {service.description}
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+                {service.features.map((feature, fIdx) => (
+                  <li key={fIdx} className="flex items-center gap-3 text-sm font-medium">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* The Method Section */}
+      <div className="bg-surface/10 py-16 md:py-32 border-y border-border overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-20">
+            <div>
+              <h2 className="text-sm font-semibold tracking-widest uppercase text-gold mb-4">How I Work</h2>
+              <h3 className="text-3xl md:text-5xl font-bold">The Method.</h3>
+            </div>
+            <p className="text-lg text-text-secondary max-w-sm">
+              A systematic five-step framework designed to take your project from concept to live deployment within weeks, not months.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {methodSteps.map((method, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="relative bg-background border border-border p-8 rounded-xl hover:border-gold/30 transition-all group"
+              >
+                <span className="text-4xl font-bold text-gold/10 group-hover:text-gold/20 transition-colors absolute top-4 right-4">{method.step}</span>
+                <h4 className="text-lg font-bold mb-4 relative z-10">{method.title}</h4>
+                <p className="text-sm text-text-secondary leading-relaxed relative z-10">
+                  {method.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Pricing Tiers Section */}

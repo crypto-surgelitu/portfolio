@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Menu, X, Sun, Moon, Terminal } from 'lucide-react'
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -51,9 +51,14 @@ export default function Navbar() {
       
       <header className="fixed top-0 w-full z-40 bg-background/80 backdrop-blur-md border-b border-border transition-colors duration-400">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold tracking-wider relative group" data-cursor="hover">
-            <span className="text-foreground">AM</span>
-            <span className="text-gold">.</span>
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-wider group" data-cursor="hover">
+            <div className="w-10 h-10 rounded bg-gold/10 border border-gold/20 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all">
+              <Terminal size={22} strokeWidth={2.5} />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-foreground text-lg">MUHATI</span>
+              <span className="text-[10px] text-gold font-medium tracking-[0.2em] mt-0.5">EST 2014</span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}

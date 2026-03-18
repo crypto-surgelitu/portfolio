@@ -87,18 +87,30 @@ export default function AboutPreview() {
                 ))}
               </div>
 
-              <div className="mt-12 pt-8 border-t border-border grid grid-cols-2 gap-8">
+              <div className="mt-12 pt-8 border-t border-border grid grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
-                  <p className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-gold to-gold-light mb-2">
-                    <Counter value="150" suffix="+" />
+                  <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-gold to-gold-light mb-2">
+                    <Counter value="5" suffix="+" />
                   </p>
-                  <p className="text-sm text-text-secondary font-medium tracking-wide">Projects Delivered</p>
+                  <p className="text-[10px] uppercase tracking-widest text-text-secondary font-bold">Projects Built</p>
                 </div>
                 <div>
-                  <p className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-gold to-gold-light mb-2">
-                    <Counter value="10" suffix="+" />
+                  <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-gold to-gold-light mb-2">
+                    <Counter value="12" suffix="+" />
                   </p>
-                  <p className="text-sm text-text-secondary font-medium tracking-wide">Years Experience</p>
+                  <p className="text-[10px] uppercase tracking-widest text-text-secondary font-bold">Happy Clients</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-gold to-gold-light mb-2">
+                    <Counter value="99" suffix="%" />
+                  </p>
+                  <p className="text-[10px] uppercase tracking-widest text-text-secondary font-bold">Satisfaction</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-gold to-gold-light mb-2">
+                    <span className="font-mono">24/7</span>
+                  </p>
+                  <p className="text-[10px] uppercase tracking-widest text-text-secondary font-bold">Sys. Support</p>
                 </div>
               </div>
             </motion.div>

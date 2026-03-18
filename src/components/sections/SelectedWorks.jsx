@@ -11,24 +11,40 @@ const featuredProjects = [
     category: 'E-Commerce / Web App',
     description: 'Kenyan multi-vendor marketplace with M-Pesa STK Push, Africa\'s Talking SMS, and real-time inventory management.',
     image: '/images/projects/duka-store-thumb.jpg', 
-    color: 'from-orange-500/20 to-red-500/20',
+    color: 'from-amber-500/20 to-orange-600/20',
     slug: 'duka-store'
   },
   {
     id: 2,
+    title: 'Thrift & Carry',
+    category: 'E-Commerce / UI Design',
+    description: 'A premium second-hand fashion platform with a focus on editorial aesthetics and sustainable commerce.',
+    image: '/images/projects/thrift-thumb.jpg',
+    color: 'from-rose-500/20 to-pink-600/20',
+    slug: 'thrift-and-carry'
+  },
+  {
+    id: 3,
     title: 'BS1 Room Booking',
     category: 'Web App / Booking',
     description: 'NGO room booking system with real-time availability, JWT auth, and post-booking star ratings.',
     image: '/images/projects/bs1-thumb.jpg',
-    color: 'from-blue-500/20 to-indigo-500/20',
+    color: 'from-slate-500/20 to-indigo-600/20',
     slug: 'bs1-booking'
   }
 ]
 
+const categories = ['All', 'Web App', 'E-Commerce', 'UI Design']
+
 export default function SelectedWorks() {
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
+  const [activeCategory, setActiveCategory] = useState('All')
   const [hoveredProject, setHoveredProject] = useState(null)
+
+  const filteredProjects = activeCategory === 'All' 
+    ? featuredProjects 
+    : featuredProjects.filter(p => p.category.includes(activeCategory))
 
   // 3D Tilt handling
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
@@ -53,7 +69,7 @@ export default function SelectedWorks() {
     <section ref={containerRef} className="py-16 md:py-32">
       <div className="container mx-auto px-6">
         
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
@@ -66,23 +82,30 @@ export default function SelectedWorks() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-wrap gap-3"
           >
-            <Link 
-              to="/works" 
-              className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-full text-foreground hover:bg-gold hover:text-white hover:border-gold transition-all group"
-              data-cursor="hover"
-            >
-              View All Projects
-              <span className="w-8 h-px bg-current group-hover:w-12 transition-all duration-300" />
-            </Link>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all border ${
+                  activeCategory === cat 
+                    ? 'bg-gold border-gold text-black shadow-lg shadow-gold/20' 
+                    : 'bg-surface/50 border-border text-text-secondary hover:border-gold/50'
+                }`}
+                data-cursor="hover"
+              >
+                {cat}
+              </button>
+            ))}
           </motion.div>
         </div>
 
         <div className="flex flex-col gap-12">
-          {featuredProjects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <motion.div 
               key={project.id}
               initial={{ opacity: 0, y: 40 }}
@@ -105,23 +128,39 @@ export default function SelectedWorks() {
                 >
                   
                   {/* Thumbnail */}
-                  <div className="lg:col-span-7 relative aspect-[16/9] w-full bg-background rounded-lg border border-border overflow-hidden">
-                    {/* Placeholder gradient matching project color until real image */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-40 group-hover:scale-110 transition-transform duration-700 ease-out`} />
+                  <div className="lg:col-span-7 relative aspect-[16/9] w-full bg-background rounded-lg border border-border overflow-hidden group">
+                    {/* Placeholder gradient matching project color */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-30 group-hover:scale-105 transition-transform duration-1000 ease-out`} />
                     
-                    {/* Inner mock UI wrapper */}
-                    <div className="absolute inset-x-8 top-8 bottom-0 bg-surface rounded-t border-t border-x border-border/50 shadow-2xl overflow-hidden translate-y-4 group-hover:translate-y-2 transition-transform duration-500">
-                      <div className="h-6 bg-background border-b border-border/50 flex items-center px-4 gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-border" />
-                        <span className="w-2 h-2 rounded-full bg-border" />
-                        <span className="w-2 h-2 rounded-full bg-border" />
+                    {/* Browser Mockup Frame */}
+                    <div className="absolute inset-x-12 top-12 bottom-0 bg-surface rounded-t-lg border-t border-x border-border shadow-2xl overflow-hidden translate-y-2 group-hover:translate-y-0 transition-transform duration-700 ease-out">
+                      {/* Browser Header */}
+                      <div className="h-8 bg-background/50 backdrop-blur-md border-b border-border flex items-center justify-between px-4">
+                        <div className="flex gap-1.5 leading-none">
+                          <div className="w-2.5 h-2.5 rounded-full bg-rose-500/40" />
+                          <div className="w-2.5 h-2.5 rounded-full bg-amber-500/40" />
+                          <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
+                        </div>
+                        <div className="w-32 h-2.5 bg-border rounded-full opacity-30" />
+                        <div className="w-6 h-2.5 bg-border rounded-full opacity-30" />
                       </div>
-                      <div className="p-4 flex flex-col gap-3 opacity-30">
-                        <div className="w-1/3 h-4 bg-border/50 rounded" />
-                        <div className="w-full h-24 bg-border/30 rounded" />
-                        <div className="w-2/3 h-4 bg-border/50 rounded" />
+
+                      {/* Content Placeholders */}
+                      <div className="p-8 space-y-8 h-full bg-gradient-to-br from-surface to-background/50">
+                        <div className="space-y-3">
+                          <div className="w-1/4 h-3 bg-gold/10 rounded" />
+                          <div className="w-1/2 h-8 bg-foreground/5 rounded" />
+                        </div>
+                        <div className="grid grid-cols-3 gap-6">
+                          <div className="aspect-[4/5] bg-foreground/3 rounded border border-border/50" />
+                          <div className="aspect-[4/5] bg-foreground/3 rounded border border-border/50" />
+                          <div className="aspect-[4/5] bg-foreground/3 rounded border border-border/50" />
+                        </div>
                       </div>
                     </div>
+
+                    {/* Reflection overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.01] pointer-events-none" />
                   </div>
 
                   {/* Content */}

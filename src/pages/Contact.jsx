@@ -137,12 +137,41 @@ export default function Contact() {
       
       {/* Header section */}
       <div className="container mx-auto px-6 pt-20 pb-8 md:pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gold/30 bg-gold/5 mb-6"
+        >
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-gold text-white/90">Available for New Projects</span>
+        </motion.div>
+        
         <h1 className="text-[2.2rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.8rem] font-bold mb-4 md:mb-6 tracking-tight">
           Start a <span className="text-gold italic">Project.</span>
         </h1>
-        <p className="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed mb-16">
+        <p className="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed">
           Whether you have a fully-fledged design or just a rough idea, I'm here to bring your digital vision to life.
         </p>
+      </div>
+
+      {/* Availability Strip */}
+      <div className="border-y border-border bg-surface/30 mb-16 md:mb-24 overflow-hidden">
+        <div className="container mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <p className="text-[10px] uppercase tracking-widest text-text-secondary font-bold">Location</p>
+            <p className="font-bold text-foreground">Mombasa, KE (GMT+3)</p>
+          </div>
+          <div className="h-8 w-px bg-border hidden md:block" />
+          <div className="flex items-center gap-4">
+            <p className="text-[10px] uppercase tracking-widest text-text-secondary font-bold">Weekly Capacity</p>
+            <p className="font-bold text-foreground">2 Open Slots</p>
+          </div>
+          <div className="h-8 w-px bg-border hidden md:block" />
+          <div className="flex items-center gap-4">
+            <p className="text-[10px] uppercase tracking-widest text-text-secondary font-bold">Response Time</p>
+            <p className="font-bold text-foreground">&lt; 24 Hours</p>
+          </div>
+        </div>
       </div>
 
       <div className="container mx-auto px-6 pb-16 md:pb-32">
