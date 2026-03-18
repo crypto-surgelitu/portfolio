@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 export default function PageMeta({ title, description, image = '/og-image.png', path = '' }) {
-  const siteUrl = 'https://anthonymuhati.dev'
+  const siteUrl = 'https://anthonymuhati.com'
   const fullUrl = `${siteUrl}${path}`
   const fullImage = `${siteUrl}${image}`
 

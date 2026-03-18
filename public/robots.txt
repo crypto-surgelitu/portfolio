@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://anthonymuhati.dev/sitemap.xml
+Sitemap: https://anthonymuhati.com/sitemap.xml
