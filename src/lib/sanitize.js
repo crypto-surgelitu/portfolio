@@ -12,3 +12,16 @@ export const sanitizeInput = (dirtyInput) => {
     ALLOWED_ATTR: []
   })
 }
+
+/**
+ * Sanitizes all fields in a form data object
+ * @param {Object} formData 
+ * @returns {Object} clean form data
+ */
+export const sanitizeForm = (formData) => {
+  const clean = {}
+  Object.keys(formData).forEach(key => {
+    clean[key] = sanitizeInput(formData[key])
+  })
+  return clean
+}

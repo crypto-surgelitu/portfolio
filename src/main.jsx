@@ -2,8 +2,16 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import ReactGA from 'react-ga4'
 import Lenis from 'lenis'
+import * as Sentry from '@sentry/react'
 import App from './App.jsx'
 import './styles/globals.css'
+
+// Initialize Sentry
+Sentry.init({
+  dsn: import.meta.env.VITE_SENTRY_DSN,
+  environment: import.meta.env.MODE,
+  tracesSampleRate: 0.2,
+})
 
 // Initialize Google Analytics
 if (import.meta.env.VITE_GA_MEASUREMENT_ID) {
@@ -32,6 +40,8 @@ requestAnimationFrame(raf)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <Sentry.ErrorBoundary>
+      <App />
+    </Sentry.ErrorBoundary>
   </StrictMode>,
 )

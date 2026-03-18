@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Anthony Muhati | Full-Stack Web Developer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b88f14",
+                        "warm-cream": "#f5f5f5",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#0a0a0a",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"],
+                        "serif-italic": ["Georgia", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }</script>
+<style>body { font-family: 'Work Sans', sans-serif; transition: background-color 0.3s ease; cursor: none !important; }
+        .glass-panel {
+            background: rgba(184, 143, 20, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(184, 143, 20, 0.1);
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(184, 143, 20, 0.3);
+            color: transparent;
+        }
+        .nav-underline {
+            position: relative;
+        }
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #b88f14;
+            transition: width 0.3s ease;
+        }
+        .nav-underline:hover::after {
+            width: 100%;
+        }
+        .custom-cursor {
+            width: 8px;
+            height: 8px;
+            background: #b88f14;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease, background 0.3s ease;
+            display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: bold; color: black; overflow: hidden;
+        }
+        @media (hover: none) { .custom-cursor { display: none; } body { cursor: auto !important; } }
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .service-card-wrapper.active .service-card-inner { transform: rotateY(180deg); }
+        .project-card { transition: transform 0.1s ease-out; }</style>
+<script src="https://unpkg.com/lucide@latest"></script><script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script></head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary selection:text-background-dark overflow-x-hidden">
+<!-- Scroll Progress Bar -->
+<div class="fixed top-0 left-0 w-full h-[2px] bg-primary z-[9999] origin-left scale-x-0" id="scroll-progress"></div>
+<!-- Sticky Navigation -->
+<nav class="sticky top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-background-dark font-bold">terminal</span>
+</div>
+<span class="text-xl font-black tracking-tighter uppercase">Muhati</span>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="nav-underline text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors" href="#home">Home</a>
+<a class="nav-underline text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors" href="#about">About</a>
+<a class="nav-underline text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors" href="#projects">Works</a>
+<a class="nav-underline text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors" href="#services">Services</a>
+<a class="nav-underline text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">dark_mode</span>
+</button>
+<button class="bg-primary text-background-dark px-6 py-2.5 font-bold text-sm uppercase tracking-wider rounded hover:bg-opacity-90 transition-all">
+                    Let's Talk
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center pt-20 px-6 overflow-hidden" id="home">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Available for Work
+                </div>
+<h1 class="text-6xl md:text-8xl font-black leading-none mb-6">
+                    ANTHONY<br/>
+<span class="text-stroke">MUHATI</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-lg mb-10 font-light leading-relaxed">
+                    Full-stack web developer based in <span class="text-primary font-medium">Mombasa, Kenya</span>. Crafting high-performance digital experiences with an editorial touch.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="group flex items-center gap-3 bg-primary text-background-dark px-8 py-4 font-bold rounded overflow-hidden relative magnetic-btn">
+<span>VIEW PROJECTS</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<button class="group flex items-center gap-3 border border-primary text-primary px-8 py-4 font-bold rounded hover:bg-primary hover:text-background-dark transition-all magnetic-btn">
+<span>GET IN TOUCH</span>
+</button>
+</div>
+<div class="flex gap-3 mt-12 flex-wrap">
+<div class="cursor-pointer flex h-9 items-center justify-center gap-x-2 rounded border border-primary/20 bg-primary/5 px-4 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-background-dark transition-all">
+                        React Expert
+                    </div>
+<div class="cursor-pointer flex h-9 items-center justify-center gap-x-2 rounded border border-primary/20 bg-primary/5 px-4 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-background-dark transition-all">
+                        Next.js Specialist
+                    </div>
+<div class="cursor-pointer flex h-9 items-center justify-center gap-x-2 rounded border border-primary/20 bg-primary/5 px-4 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-background-dark transition-all">
+                        Node.js Developer
+                    </div>
+</div>
+</div>
+<div class="relative flex justify-center lg:justify-end">
+<div class="relative w-full aspect-[4/5] max-w-md bg-primary/10 rounded-xl overflow-hidden shadow-2xl group" id="hero-portrait-container">
+<div class="absolute inset-0 bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" data-alt="Professional editorial portrait of Anthony Muhati" id="hero-portrait-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgHWkkc1mMNbp9vOkaTSxpHQRAzMTKF-9Q-guMfrylo65xbK_OyeLQYx0Kp5nw5rcOQe4t9vcULz9s9StHRe2JNc1L1PZ9QDqALprXCXgtAO1hf8oknUxura60oB6qk62MnOHxLBm4AAu2WhWEPKu5uwMrm0v2Z4c8rux0nlgY7trADvoeslfuVtTKLhYS7tP1nOZQhntnAyjiXw0KF2dK7zAibUphT008dfKZvS7XwmkfaSX3LDwIjUSY3Zp-VqL-sxQM4L65DeA');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6 right-6 p-6 glass-panel rounded-lg">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-primary font-bold uppercase tracking-widest mb-1">Current Focus</p>
+<h3 class="text-xl font-bold">Scalable Architecture</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+<span class="text-[10px] font-bold uppercase tracking-widest">Scroll</span>
+<div class="w-5 h-8 border-2 border-primary rounded-full relative">
+<div class="w-1 h-1 bg-primary rounded-full absolute top-2 left-1/2 -translate-x-1/2 scroll-indicator-dot"></div>
+</div>
+</div></section>
+<!-- Stats Bar -->
+<div class="py-12 border-y border-primary/10 bg-primary/5">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="text-4xl font-black text-primary mb-1">5+</div>
+<div class="text-xs font-bold uppercase tracking-tighter opacity-60">Projects Completed</div>
+</div>
+<div class="text-center">
+<div class="text-4xl font-black text-primary mb-1">12+</div>
+<div class="text-xs font-bold uppercase tracking-tighter opacity-60">Happy Clients</div>
+</div>
+<div class="text-center">
+<div class="text-4xl font-black text-primary mb-1">99%</div>
+<div class="text-xs font-bold uppercase tracking-tighter opacity-60">Client Satisfaction</div>
+</div>
+<div class="text-center">
+<div class="text-4xl font-black text-primary mb-1">24/7</div>
+<div class="text-xs font-bold uppercase tracking-tighter opacity-60">System Support</div>
+</div>
+</div>
+</div>
+<!-- About & Skills Section -->
+<section class="py-32 px-6" id="about">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row gap-20">
+<div class="md:w-1/2">
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.3em] mb-4">About Me</h2>
+<h3 class="text-4xl md:text-5xl font-black mb-8 leading-tight">Engineering Digital <span class="text-primary italic font-serif-italic">Precision</span> &amp; Artistry</h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
+                        I specialize in building robust full-stack applications that don't just work—they perform. With a deep foundation in modern JavaScript ecosystems, I bridge the gap between complex backend logic and seamless frontend interfaces.
+                    </p>
+<div class="space-y-6"><div class="skill-row group cursor-default" data-percent="95"><div class="flex justify-between mb-2"><span class="font-bold text-sm uppercase tracking-widest">Frontend Mastery</span><span class="text-primary font-bold">95%</span></div><div class="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden"><div class="skill-bar h-full bg-primary origin-left scale-x-0 transition-transform duration-500"></div></div></div><div class="skill-row group cursor-default" data-percent="88"><div class="flex justify-between mb-2"><span class="font-bold text-sm uppercase tracking-widest">Backend Systems</span><span class="text-primary font-bold">88%</span></div><div class="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden"><div class="skill-bar h-full bg-primary origin-left scale-x-0 transition-transform duration-500"></div></div></div><div class="skill-row group cursor-default" data-percent="75"><div class="flex justify-between mb-2"><span class="font-bold text-sm uppercase tracking-widest">DevOps &amp; Cloud</span><span class="text-primary font-bold">75%</span></div><div class="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden"><div class="skill-bar h-full bg-primary origin-left scale-x-0 transition-transform duration-500"></div></div></div></div>
+</div>
+<div class="md:w-1/2 flex flex-col gap-12">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-primary/5 p-8 rounded-xl border border-primary/10 flex flex-col justify-center items-center text-center group hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">layers</span>
+<h4 class="font-bold uppercase tracking-widest text-sm mb-2">React Ecosystem</h4>
+<p class="text-[10px] opacity-60">Redux, Context API, Hooks, Framer Motion</p>
+</div>
+<div class="bg-primary/5 p-8 rounded-xl border border-primary/10 flex flex-col justify-center items-center text-center group hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">database</span>
+<h4 class="font-bold uppercase tracking-widest text-sm mb-2">Database Design</h4>
+<p class="text-[10px] opacity-60">PostgreSQL, MongoDB, Prisma, Redis</p>
+</div>
+</div>
+<div>
+<h4 class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-6">Core Stack</h4>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-primary/10 transition-all cursor-default">
+<i class="w-4 h-4 text-primary" data-lucide="atom"></i> React
+            </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-primary/10 transition-all cursor-default">
+<i class="w-4 h-4 text-primary" data-lucide="database"></i> Supabase
+            </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-primary/10 transition-all cursor-default">
+<i class="w-4 h-4 text-primary" data-lucide="server"></i> Node.js
+            </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-primary/10 transition-all cursor-default">
+<i class="w-4 h-4 text-primary" data-lucide="credit-card"></i> Daraja API
+            </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-primary/10 transition-all cursor-default">
+<i class="w-4 h-4 text-primary" data-lucide="zap"></i> Next.js
+            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-32 px-6 bg-primary/5" id="projects">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.3em] mb-4">Selected Works</h2>
+<h3 class="text-4xl md:text-5xl font-black">Featured Projects</h3>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 rounded-full bg-primary text-background-dark font-bold text-xs uppercase tracking-widest">All</button>
+<button class="px-6 py-2 rounded-full border border-primary/20 hover:border-primary text-slate-500 hover:text-primary font-bold text-xs uppercase tracking-widest transition-all">Web</button>
+<button class="px-6 py-2 rounded-full border border-primary/20 hover:border-primary text-slate-500 hover:text-primary font-bold text-xs uppercase tracking-widest transition-all">Mobile</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="group relative bg-background-light dark:bg-background-dark rounded-xl overflow-hidden border border-primary/10 hover:border-primary/40 transition-all duration-500 project-card cursor-pointer">
+<div class="aspect-[16/10] overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="E-commerce storefront mockup for Duka Store" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqk3ZO-CjyHX0EYpvs49y-WlF9H7p8Cr7IMd-_u1D6pc3uxp4Tkz98FwIXFJpvve6b2CSSHNGvHqA1xYAKsruOUlLQc-H47VYpZ021TNW8So5z0r0FfOY7aub1CRw6Dq7FouI2ZJDAIMxTi3hyfEEd_1ZhPNTeOoj65TbYk-sgai830jvWkrrW3OqP3oCsLO9ByufHCmeAbOgvWjemQim05Ag_UoIDR4ksJswpUf1gAfZs8j71a-pZ6u-fwJ2ytiEf_wioQPM_GpI');"></div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">visibility</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-2xl font-bold group-hover:text-primary transition-colors">Duka Store</h4>
+<span class="text-xs font-bold text-primary uppercase">2023</span>
+</div>
+<p class="text-slate-500 text-sm mb-6 line-clamp-2 italic">A premium multi-vendor marketplace built with Next.js 14 and Stripe integration.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded">Next.js</span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded">Prisma</span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded">Tailwind</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group relative bg-background-light dark:bg-background-dark rounded-xl overflow-hidden border border-primary/10 hover:border-primary/40 transition-all duration-500 project-card cursor-pointer">
+<div class="aspect-[16/10] overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Logistics and tracking application dashboard for Thrift &amp; Carry" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5DhaJAg9aRvccso-YwQJJtnaoXgfG311B_fqcpHyArPwOnroS4EXoYx58TVW6vHeoWoKhJF6hVXsnxtUljcnxMPkI5ZUjOrxGd-nhFZUErELkuaZ5K9IwdJ0yT0ZEl2xoyeT1hX5VqFGZtluYtFDJDq7kk8qa40KungetaPXx8gpcePUMfKU3mdgC5cIGInqEWiLqQ2PdyW3tt-XfaL3nH9yWu6KkHBYzwqUStUSw1aVknHBuvpv46ksZOoFvEgt5Qk_6j22WlBE');"></div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">visibility</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-2xl font-bold group-hover:text-primary transition-colors">Thrift &amp; Carry</h4>
+<span class="text-xs font-bold text-primary uppercase">2022</span>
+</div>
+<p class="text-slate-500 text-sm mb-6 line-clamp-2 italic">Logistics management system for regional freight services with real-time tracking.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded">React</span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded">Node.js</span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded">Google Maps API</span>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="group relative bg-background-light dark:bg-background-dark rounded-xl overflow-hidden border border-primary/10 hover:border-primary/40 transition-all duration-500 project-card cursor-pointer">
+<div class="aspect-[16/10] overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Office space booking interface for BS1 Room Booking" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4M_ZCl3DeSCVLow9QszliuhUUZ2svYPxLv6EGsm3sy3VpfWRq-RPPQZTZWNC4ByuacOZycvXc1zNYM_FK76XyfCgoTjnjF7LyOMD6CYqkWSYKnPD_fxc6wgT0fVyk5TZYxOoF3312EiWWrM3AiLcrNiLq76BXVrQN_i3iV7_r1kX_VHcbqIiEFsPbLt5t6rfUDST0iQjcuqtH_Qgg9hwBgK1v_XbD438RUeO7e3SzFjlMmb743MAv3Ipu4ZtF_ssrpWe8FJgc54E');"></div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">visibility</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-2xl font-bold group-hover:text-primary transition-colors">BS1 Room Booking</h4>
+<span class="text-xs font-bold text-primary uppercase">2023</span>
+</div>
+<p class="text-slate-500 text-sm mb-6 line-clamp-2 italic">Enterprise-level workspace reservation system with internal Outlook integration.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded">TypeScript</span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded">PostgreSQL</span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded">Docker</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-32 px-6" id="services">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.3em] mb-4">What I Do</h2>
+<h3 class="text-4xl md:text-5xl font-black mb-6">Premium Digital Solutions</h3>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto italic">
+                    I provide end-to-end development services tailored to modern business needs, from conceptualizing architecture to final deployment.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="service-card-wrapper group perspective-1000 h-[320px] cursor-pointer">
+<div class="service-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d">
+<!-- Front -->
+<div class="absolute inset-0 backface-hidden bg-primary/5 rounded-2xl border border-primary/10 p-8 flex flex-col">
+<i class="w-10 h-10 text-primary mb-6" data-lucide="layout"></i>
+<h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">Web Application Development</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-auto">Custom-built, scalable web applications designed for performance and security.</p>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest flex items-center gap-2">Click to flip <i class="w-3 h-3" data-lucide="rotate-cw"></i></span>
+</div>
+<!-- Back -->
+<div class="absolute inset-0 backface-hidden rotate-y-180 bg-primary/10 rounded-2xl border border-primary/30 p-8 flex flex-col justify-center items-center text-center">
+<h4 class="text-lg font-bold text-primary mb-2">Our Approach</h4>
+<p class="text-sm italic">Agile methodology focusing on speed, security, and exceptional user experience.</p>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="service-card-wrapper group perspective-1000 h-[320px] cursor-pointer">
+<div class="service-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d">
+<div class="absolute inset-0 backface-hidden bg-primary/5 rounded-2xl border border-primary/10 p-8 flex flex-col">
+<i class="w-10 h-10 text-primary mb-6" data-lucide="palette"></i>
+<h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">UI/UX Strategy &amp; Design</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-auto">User-centric interfaces that blend aesthetic beauty with seamless functionality.</p>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest flex items-center gap-2">Click to flip <i class="w-3 h-3" data-lucide="rotate-cw"></i></span>
+</div>
+<div class="absolute inset-0 backface-hidden rotate-y-180 bg-primary/10 rounded-2xl border border-primary/30 p-8 flex flex-col justify-center items-center text-center">
+<h4 class="text-lg font-bold text-primary mb-2">Design First</h4>
+<p class="text-sm italic">We believe in creating designs that are not just pretty, but functional and conversion-driven.</p>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="service-card-wrapper group perspective-1000 h-[320px] cursor-pointer">
+<div class="service-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d">
+<div class="absolute inset-0 backface-hidden bg-primary/5 rounded-2xl border border-primary/10 p-8 flex flex-col">
+<i class="w-10 h-10 text-primary mb-6" data-lucide="credit-card"></i>
+<h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">API &amp; Payment Integration</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-auto">Specialized in M-Pesa integration and robust backend API architecture.</p>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest flex items-center gap-2">Click to flip <i class="w-3 h-3" data-lucide="rotate-cw"></i></span>
+</div>
+<div class="absolute inset-0 backface-hidden rotate-y-180 bg-primary/10 rounded-2xl border border-primary/30 p-8 flex flex-col justify-center items-center text-center">
+<h4 class="text-lg font-bold text-primary mb-2">Fintech Focus</h4>
+<p class="text-sm italic">Secure and seamless local &amp; international payment gateways for your business.</p>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="service-card-wrapper group perspective-1000 h-[320px] cursor-pointer">
+<div class="service-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d">
+<div class="absolute inset-0 backface-hidden bg-primary/5 rounded-2xl border border-primary/10 p-8 flex flex-col">
+<i class="w-10 h-10 text-primary mb-6" data-lucide="shopping-bag"></i>
+<h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">E-Commerce Solutions</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-auto">Scale your business with high-conversion storefronts and inventory systems.</p>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest flex items-center gap-2">Click to flip <i class="w-3 h-3" data-lucide="rotate-cw"></i></span>
+</div>
+<div class="absolute inset-0 backface-hidden rotate-y-180 bg-primary/10 rounded-2xl border border-primary/30 p-8 flex flex-col justify-center items-center text-center">
+<h4 class="text-lg font-bold text-primary mb-2">Scale Up</h4>
+<p class="text-sm italic">From small shops to enterprise marketplaces, we build for growth.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 px-6 bg-primary/5" id="contact">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<div>
+<h2 class="text-xs font-bold text-primary uppercase tracking-[0.3em] mb-4">Contact</h2>
+<h3 class="text-4xl md:text-5xl font-black mb-8 leading-tight">Start a <span class="text-stroke">Project</span> With Me</h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg mb-12 italic">
+                        Whether you have a fully-fledged design or just a rough idea, I'm here to bring your digital vision to life.
+                    </p>
+<div class="space-y-8">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest opacity-50">Email Me</p>
+<p class="text-xl font-bold">hello@muhati.dev</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest opacity-50">Location</p>
+<p class="text-xl font-bold">Mombasa, Kenya</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest opacity-50">Social</p>
+<div class="flex gap-4 mt-1"><a aria-label="GitHub" class="text-primary hover:opacity-70 transition-all" href="#"><i class="w-5 h-5" data-lucide="github"></i></a>
+<a aria-label="LinkedIn" class="text-primary hover:opacity-70 transition-all" href="#"><i class="w-5 h-5" data-lucide="linkedin"></i></a>
+<a aria-label="Twitter" class="text-primary hover:opacity-70 transition-all" href="#"><i class="w-5 h-5" data-lucide="twitter"></i></a>
+<script>lucide.createIcons();</script></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-8 md:p-12 rounded-2xl border border-primary/10 shadow-xl">
+<form class="space-y-6"><div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest opacity-50">Full Name</label>
+<input class="w-full bg-primary/5 border-primary/10 rounded p-3 text-sm focus:border-primary outline-none transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest opacity-50">Email Address</label>
+<input class="w-full bg-primary/5 border-primary/10 rounded p-3 text-sm focus:border-primary outline-none transition-all" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest opacity-50">Project Details</label>
+<textarea class="w-full bg-primary/5 border-primary/10 rounded p-3 text-sm focus:border-primary outline-none transition-all" placeholder="Tell me about your vision..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-background-dark font-black py-4 uppercase tracking-widest hover:opacity-90 transition-all" type="submit">
+    Send Message
+</button></form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-12 px-6 border-t border-primary/10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary/20 flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-sm font-bold">terminal</span>
+</div>
+<span class="text-lg font-black tracking-tighter uppercase">Muhati</span>
+</div>
+<p class="text-sm opacity-50 font-medium">
+                © 2024 Anthony Muhati. Handcrafted in Mombasa.
+            </p>
+<div class="flex gap-8">
+<a class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#">Terms</a>
+<a class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#">Dribbble</a>
+</div>
+</div>
+</footer>
+<!-- Location Context -->
+<div data-location="Mombasa, Kenya" style="display:none;"></div>
+<div class="custom-cursor hidden md:block"></div><script>const { animate, spring } = FramerMotion;
+
+    lucide.createIcons();
+
+    const isHoverable = window.matchMedia('(hover: hover)').matches;
+
+    // 1. SCROLL PROGRESS BAR
+    const progress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        const progressRatio = window.scrollY / totalHeight;
+        progress.style.transform = `scaleX(${progressRatio})`;
+    });
+
+    // 2 & 3. PROJECT CARDS (3D TILT & MODALS)
+    const projectData = {
+        'Duka Store': {
+            desc: "Multi-vendor Kenyan marketplace. M-Pesa STK Push payments, real-time inventory, Africa's Talking SMS integration for vendor notifications.",
+            stack: ['React', 'Next.js', 'Supabase', 'Daraja API', 'Stripe']
+        },
+        'Thrift & Carry': {
+            desc: "Luxury secondhand handbag shop platform. Features secure admin panel via Supabase Edge Functions, automated image optimization, and local delivery tracking.",
+            stack: ['React', 'Supabase', 'Node.js', 'Google Maps API']
+        },
+        'BS1 Room Booking': {
+            desc: "Enterprise NGO workspace reservation system. Integrated with Outlook Calendar, featuring real-time availability checks and automated reminders.",
+            stack: ['TypeScript', 'PostgreSQL', 'Docker', 'Prisma']
+        }
+    };
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        const titleElement = card.querySelector('h4');
+        const title = titleElement ? titleElement.innerText : '';
+        
+        if(isHoverable) {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `perspective(800px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) scale(1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)`;
+            });
+        }
+
+        card.addEventListener('click', () => {
+            const data = projectData[title];
+            if(!data) return;
+            document.getElementById('modal-body').innerHTML = `
+                <h2 class="text-3xl font-black text-primary mb-4">${title}</h2>
+<p class="text-slate-300 mb-6 leading-relaxed italic">${data.desc}</p>
+<div class="flex flex-wrap gap-2 mb-8">
+                    ${data.stack.map(s =&gt; `<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded border border-primary/20">${s}</span>`).join('')}
+                </div>
+<div class="flex gap-4">
+<button class="flex-1 bg-primary text-background-dark py-3 font-bold text-xs uppercase rounded hover:opacity-90">Live Demo →</button>
+<button class="flex-1 border border-primary text-primary py-3 font-bold text-xs uppercase rounded hover:bg-primary/10">Source Code</button>
+</div>
+            `;
+            document.getElementById('project-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    document.getElementById('close-modal').addEventListener('click', () => {
+        document.getElementById('project-modal').classList.add('hidden');
+        document.body.style.overflow = '';
+    });
+
+    // 4. SERVICE CARDS FLIP
+    document.querySelectorAll('.service-card-wrapper').forEach(wrapper => {
+        wrapper.addEventListener('click', () => {
+            const inner = wrapper.querySelector('.service-card-inner');
+            inner.classList.toggle('rotate-y-180');
+        });
+    });
+
+    // 5. SKILL BARS HOVER
+    document.querySelectorAll('.skill-row').forEach(row => {
+        const bar = row.querySelector('.skill-bar');
+        const percent = row.getAttribute('data-percent');
+        row.addEventListener('mouseenter', () => {
+            bar.style.transform = `scaleX(${percent/100})`;
+        });
+        row.addEventListener('mouseleave', () => {
+            bar.style.transform = `scaleX(0)`;
+        });
+    });
+
+    // 6. CUSTOM CURSOR
+    const cursor = document.querySelector('.custom-cursor');
+    if(isHoverable && cursor) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('button, a, .magnetic-btn, .service-card-wrapper, .project-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '60px'; cursor.style.height = '60px'; 
+                cursor.style.background = 'rgba(184, 143, 20, 0.3)';
+                cursor.style.border = '1px solid #b88f14';
+                cursor.innerText = el.classList.contains('project-card') ? 'VIEW' : 'GO';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '8px'; cursor.style.height = '8px';
+                cursor.style.background = '#b88f14';
+                cursor.style.border = 'none';
+                cursor.innerText = '';
+            });
+        });
+    } else if (cursor) {
+        cursor.style.display = 'none';
+    }
+
+    // 7. MAGNETIC BUTTONS
+    if(isHoverable) {
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width/2) * 0.35;
+                const y = (e.clientY - rect.top - rect.height/2) * 0.35;
+                btn.style.transform = `translate(${Math.min(Math.max(x, -14), 14)}px, ${Math.min(Math.max(y, -14), 14)}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0,0)';
+            });
+        });
+    }
+
+    // 8. PHOTO PARALLAX
+    const portraitContainer = document.getElementById('hero-portrait-container');
+    const portraitImg = document.getElementById('hero-portrait-image');
+    if(isHoverable && portraitContainer && portraitImg) {
+        portraitContainer.addEventListener('mousemove', (e) => {
+            const rect = portraitContainer.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            portraitImg.style.transform = `scale(1.1) translate(${-x * 20}px, ${-y * 20}px)`;
+        });
+        portraitContainer.addEventListener('mouseleave', () => {
+            portraitImg.style.transform = `scale(1.05) translate(0,0)`;
+        });
+    }</script><div class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-6 bg-background-dark/80 backdrop-blur-sm" id="project-modal">
+<div class="bg-background-dark border border-primary/20 p-8 rounded-2xl max-w-2xl w-full shadow-2xl relative" id="modal-content">
+<button class="absolute top-4 right-4 text-slate-400 hover:text-primary" id="close-modal"><span class="material-symbols-outlined">close</span></button>
+<div id="modal-body"></div>
+</div>
+</div></body></html>

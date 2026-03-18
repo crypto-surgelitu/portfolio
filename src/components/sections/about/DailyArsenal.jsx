@@ -11,12 +11,7 @@ const tools = [
   {
     category: 'Software & Tools',
     icon: <Monitor size={20} />,
-    items: ['VS Code', 'GitHub', 'Postman', 'Supabase Studio', 'Vercel CLI', 'Figma', 'Chrome DevTools']
-  },
-  {
-    category: 'Terminal & CLI',
-    icon: <Terminal size={20} />,
-    items: ['Windows Terminal', 'Zsh with Oh My Zsh', 'Git CLI']
+    items: ['VS Code', 'GitHub', 'Postman', 'Supabase Studio', 'Vercel CLI', 'Figma', 'Chrome DevTools', 'Windows Terminal']
   },
   {
     category: 'Daily Drivers',
