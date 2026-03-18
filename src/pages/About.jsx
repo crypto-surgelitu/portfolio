@@ -18,7 +18,7 @@ export default function About() {
           About <span className="text-gold italic">Me.</span>
         </h1>
         <p className="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed">
-          Crafting digital experiences at the intersection of design and technology, with a focus on editorial aesthetics and functional code.
+          Building complete, production-ready web applications for businesses across Kenya and beyond.
         </p>
       </div>
 

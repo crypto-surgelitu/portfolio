@@ -17,18 +17,13 @@ import Services from './pages/Services'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 
-
-// Main Routes Component to handle page transitions and analytics tracking
 const AppRoutes = () => {
   const location = useLocation()
 
-  // Google Analytics Pageview Tracking
   useEffect(() => {
     if (import.meta.env.VITE_GA_MEASUREMENT_ID) {
       ReactGA.send({ hitType: 'pageview', page: location.pathname })
     }
-    
-    // Scroll to top on route change
     window.scrollTo(0, 0)
   }, [location])
 

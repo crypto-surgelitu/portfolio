@@ -314,23 +314,25 @@ export default function Contact() {
                   </div>
                 </a>
 
+                {/* TODO: Add real number before deploy */}
                 <a href="https://wa.me/254700000000" target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-lg hover:bg-surface border border-transparent hover:border-border transition-all group">
                   <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center text-text-secondary group-hover:text-gold group-hover:bg-gold/10 transition-colors">
                     <MessageCircle size={20} />
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-text-secondary mb-1">WhatsApp</p>
-                    <p className="font-semibold text-lg group-hover:text-gold transition-colors">+254 700 000 000</p>
+                    <p className="font-semibold text-lg group-hover:text-gold transition-colors">Available on request</p>
                   </div>
                 </a>
 
+                {/* TODO: Add real number before deploy */}
                 <a href="tel:+254700000000" className="flex items-center gap-4 p-4 rounded-lg hover:bg-surface border border-transparent hover:border-border transition-all group">
                   <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center text-text-secondary group-hover:text-gold group-hover:bg-gold/10 transition-colors">
                     <Phone size={20} />
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-text-secondary mb-1">Call</p>
-                    <p className="font-semibold text-lg group-hover:text-gold transition-colors">+254 700 000 000</p>
+                    <p className="font-semibold text-lg group-hover:text-gold transition-colors">Available on request</p>
                   </div>
                 </a>
               </div>

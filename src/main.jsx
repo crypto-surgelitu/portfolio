@@ -1,6 +1,5 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { HelmetProvider } from 'react-helmet-async'
 import ReactGA from 'react-ga4'
 import Lenis from 'lenis'
 import App from './App.jsx'
@@ -33,8 +32,6 @@ requestAnimationFrame(raf)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
+    <App />
   </StrictMode>,
 )

@@ -1,34 +1,56 @@
-import { Helmet } from 'react-helmet-async'
+import { useEffect } from 'react'
 
 export default function PageMeta({ title, description, image = '/og-image.png', path = '' }) {
   const siteUrl = 'https://anthonymuhati.dev'
   const fullUrl = `${siteUrl}${path}`
+  const fullImage = `${siteUrl}${image}`
 
-  return (
-    <Helmet>
-      {/* Standard SEO */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="author" content="Anthony Muhati" />
-      <meta name="robots" content="index, follow" />
-      <link rel="canonical" href={fullUrl} />
+  useEffect(() => {
+    if (title) document.title = title
 
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={fullUrl} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={`${siteUrl}${image}`} />
-      <meta property="og:locale" content="en_KE" />
-      <meta property="og:site_name" content="Anthony Muhati" />
+    const setMeta = (name, content, isProperty = false) => {
+      if (!content) return
+      const attr = isProperty ? 'property' : 'name'
+      let el = document.querySelector(`meta[${attr}="${name}"]`)
+      if (!el) {
+        el = document.createElement('meta')
+        el.setAttribute(attr, name)
+        document.head.appendChild(el)
+      }
+      el.setAttribute('content', content)
+    }
 
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={fullUrl} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`${siteUrl}${image}`} />
-      <meta name="twitter:creator" content="@anthonymuhati" />
-    </Helmet>
-  )
+    const setLink = (rel, href) => {
+      let el = document.querySelector(`link[rel="${rel}"]`)
+      if (!el) {
+        el = document.createElement('link')
+        el.setAttribute('rel', rel)
+        document.head.appendChild(el)
+      }
+      el.setAttribute('href', href)
+    }
+
+    setMeta('description', description)
+    setMeta('author', 'Anthony Muhati')
+    setMeta('robots', 'index, follow')
+    setLink('canonical', fullUrl)
+
+    setMeta('og:type', 'website', true)
+    setMeta('og:url', fullUrl, true)
+    setMeta('og:title', title, true)
+    setMeta('og:description', description, true)
+    setMeta('og:image', fullImage, true)
+    setMeta('og:locale', 'en_KE', true)
+    setMeta('og:site_name', 'Anthony Muhati', true)
+
+    setMeta('twitter:card', 'summary_large_image', true)
+    setMeta('twitter:url', fullUrl, true)
+    setMeta('twitter:title', title, true)
+    setMeta('twitter:description', description, true)
+    setMeta('twitter:image', fullImage, true)
+    setMeta('twitter:creator', '@anthonymuhati', true)
+
+  }, [title, description, fullUrl, fullImage])
+
+  return null
 }

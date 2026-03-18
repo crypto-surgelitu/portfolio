@@ -9,19 +9,19 @@ const tools = [
     items: ['MacBook Pro 16" M2 Max', 'LG 27" 4K UltraFine Display', 'Keychron K2 Mechanical Keyboard', 'Logitech MX Master 3S']
   },
   {
-    category: 'Software & Editor',
+    category: 'Software & Tools',
     icon: <Monitor size={20} />,
-    items: ['VS Code (One Dark Pro theme)', 'Arc Browser', 'Figma (for UI/UX translation)', 'Postman API Client']
+    items: ['VS Code', 'GitHub', 'Postman', 'Supabase Studio', 'Vercel CLI', 'Figma', 'Chrome DevTools']
   },
   {
     category: 'Terminal & CLI',
     icon: <Terminal size={20} />,
-    items: ['iTerm2', 'Zsh with Oh My Zsh', 'Homebrew', 'Git CLI']
+    items: ['Windows Terminal', 'Zsh with Oh My Zsh', 'Git CLI']
   },
   {
     category: 'Daily Drivers',
     icon: <Coffee size={20} />,
-    items: ['Notion (Project Management)', 'Spotify (Focus playlists)', 'Slack (Client comms)', 'Good Kenyan Coffee']
+    items: ['Notion (Project Management)', 'Spotify (Focus playlists)', 'Slack (Client comms)']
   }
 ]
 
